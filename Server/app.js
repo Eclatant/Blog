@@ -12,8 +12,8 @@ const users = require('./routes/users');
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.engine('html', require('ejs').renderFile);
+// app.set('views', path.join(__dirname, 'views'));
+// app.engine('html', require('ejs').renderFile);
 
 app.set('view engine', 'html');
 
@@ -29,7 +29,9 @@ app.use(sassMiddleware({
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true,
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, '../Client/build/')));
+
 
 app.use('/', index);
 app.use('/users', users);

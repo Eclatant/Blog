@@ -7,6 +7,7 @@ class Spinbox extends Component {
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleClickIncrement = this.handleClickIncrement.bind(this);
+    this.handleClickDecrement = this.handleClickDecrement.bind(this);
   }
 
   handleChangeInput({ target }) {
@@ -18,6 +19,12 @@ class Spinbox extends Component {
   handleClickIncrement() {
     this.setState({
       value: this.state.value + 1,
+    });
+  }
+
+  handleClickDecrement() {
+    this.setState({
+      value: this.state.value - 1,
     });
   }
 
@@ -33,7 +40,10 @@ class Spinbox extends Component {
           data-name="increment"
           onClick={this.handleClickIncrement}
         >▲</button>
-        <button>▼</button>
+        <button
+          data-name="decrement"
+          onClick={this.handleClickDecrement}
+        >▼</button>
       </div>
     );
   }

@@ -98,3 +98,38 @@ describe('값 증가 >', () => {
     expect(actualValue).toEqual(defaultValue + 3);
   });
 });
+
+describe('값 감소 >', () => {
+  const defaultValue = 200;
+  let spinbox;
+  let input;
+  let decrementBtn;
+
+  beforeEach(() => {
+    spinbox = mount(<Spinbox />);
+    input = spinbox.find('input');
+    decrementBtn = spinbox.find('[data-name="decrement"]');
+  });
+
+  test('감소 버튼을 클릭하여 값을 1 증가시킬 수 있다', () => {
+    // given
+    // when
+    decrementBtn.simulate('click');
+
+    // then
+    const actualValue = getValueFromTargetNode(input);
+    expect(actualValue).toEqual(defaultValue - 1);
+  });
+
+  test('감소 버튼을 세 번 클릭하여 값을 3 감소시킬 수 있다', () => {
+    // given
+    // when
+    decrementBtn.simulate('click');
+    decrementBtn.simulate('click');
+    decrementBtn.simulate('click');
+
+    // then
+    const actualValue = getValueFromTargetNode(input);
+    expect(actualValue).toEqual(defaultValue - 3);
+  });
+});

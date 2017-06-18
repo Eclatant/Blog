@@ -5,11 +5,18 @@
         "jsx-a11y",
         "import"
     ],
+    "env": {
+      "browser": true,
+      "node": true,
+      "jest": true
+    },
     "globals": {
       "document": true,
       "window": true,
       "navigator": true,
-      "URLSearchParams": true
+      "URLSearchParams": true,
+      "describe": true,
+      "test": true
     },
     "rules": {
       "react/prop-types": 0,

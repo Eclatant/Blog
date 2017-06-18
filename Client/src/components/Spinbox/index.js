@@ -8,9 +8,9 @@ class Spinbox extends Component {
     this.handleChangeInput = this.handleChangeInput.bind(this);
   }
 
-  handleChangeInput() {
+  handleChangeInput({ target }) {
     this.setState({
-      value: 999,
+      value: target.value,
     });
   }
 

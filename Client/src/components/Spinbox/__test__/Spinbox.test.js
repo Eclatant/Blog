@@ -35,4 +35,23 @@ describe('spinbox.js > ', () => {
     const actualValue = Number(inputNode.value);
     expect(actualValue).toEqual(999);
   });
+
+  test('입력 폼에 0을 입력할 수 있다.', () => {
+    // given
+    const spinbox = mount(<Spinbox />);
+
+    // when
+    const input = spinbox.find('input');
+
+    input.simulate('change', {
+      target: {
+        value: '0',
+      },
+    });
+
+    // then
+    const inputNode = input.getDOMNode();
+    const actualValue = Number(inputNode.value);
+    expect(actualValue).toEqual(0);
+  });
 });

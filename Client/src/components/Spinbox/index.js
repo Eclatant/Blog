@@ -17,7 +17,7 @@ class Spinbox extends Component {
 
   handleClickIncrement() {
     this.setState({
-      value: 201,
+      value: this.state.value + 1,
     });
   }
 

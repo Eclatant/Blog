@@ -69,4 +69,19 @@ describe('spinbox.js > ', () => {
     const actualValue = getValueFromTargetNode(spinbox.find('input'));
     expect(actualValue).toEqual(defaultValue + 1);
   });
+
+  test('증가 버튼을 세 번 클릭하여 값을 3 증가시킬 수 있다', () => {
+    // given
+    const defaultValue = 200;
+
+    // when
+    const incrementBtn = spinbox.find('[data-name="increment"]');
+    incrementBtn.simulate('click');
+    incrementBtn.simulate('click');
+    incrementBtn.simulate('click');
+
+    // then
+    const actualValue = getValueFromTargetNode(spinbox.find('input'));
+    expect(actualValue).toEqual(defaultValue + 3);
+  });
 });

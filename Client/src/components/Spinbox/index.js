@@ -4,7 +4,7 @@ class Spinbox extends Component {
   render() {
     return (
       <div>
-        <input type="text" />
+        <input type="text" defaultValue="200" />
         <button>▲</button>
         <button>▼</button>
       </div>

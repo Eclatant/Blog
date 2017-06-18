@@ -22,7 +22,14 @@ class Spinbox extends Component {
           value={this.state.value}
           onChange={this.handleChangeInput}
         />
-        <button>▲</button>
+        <button
+          data-name="increment"
+          onClick={() => {
+            this.setState({
+              value: 201,
+            });
+          }}
+        >▲</button>
         <button>▼</button>
       </div>
     );

@@ -56,4 +56,17 @@ describe('spinbox.js > ', () => {
     const actualValue = getValueFromTargetNode(input);
     expect(actualValue).toEqual(0);
   });
+
+  test('증가 버튼을 클릭하여 값을 1 증가시킬 수 있다', () => {
+    // given
+    const defaultValue = 200;
+
+    // when
+    const incrementBtn = spinbox.find('[data-name="increment"]');
+    incrementBtn.simulate('click');
+
+    // then
+    const actualValue = getValueFromTargetNode(spinbox.find('input'));
+    expect(actualValue).toEqual(defaultValue + 1);
+  });
 });

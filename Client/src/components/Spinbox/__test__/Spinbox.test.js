@@ -3,24 +3,30 @@ import { mount } from 'enzyme';
 
 import Spinbox from '../index';
 
+let spinbox;
+
+beforeEach(() => {
+  spinbox = mount(<Spinbox />);
+});
+
+function getValueFromTargetNode(target) {
+  const targetNode = target.getDOMNode();
+  return Number(targetNode.value);
+}
+
 describe('spinbox.js > ', () => {
   test('스핀박스를 생성하면 기본값은 200이어야 한다.', () => {
     // given
-
     // when
-    const spinbox = mount(<Spinbox />);
+    const input = spinbox.find('input');
 
     // then
-    const input = spinbox.find('input').getDOMNode();
-
-    const actualValue = Number(input.value);
+    const actualValue = getValueFromTargetNode(input);
     expect(actualValue).toEqual(200);
   });
 
   test('입력 폼에 999를 입력할 수 있다.', () => {
     // given
-    const spinbox = mount(<Spinbox />);
-
     // when
     const input = spinbox.find('input');
 
@@ -31,15 +37,12 @@ describe('spinbox.js > ', () => {
     });
 
     // then
-    const inputNode = input.getDOMNode();
-    const actualValue = Number(inputNode.value);
+    const actualValue = getValueFromTargetNode(input);
     expect(actualValue).toEqual(999);
   });
 
   test('입력 폼에 0을 입력할 수 있다.', () => {
     // given
-    const spinbox = mount(<Spinbox />);
-
     // when
     const input = spinbox.find('input');
 
@@ -50,8 +53,7 @@ describe('spinbox.js > ', () => {
     });
 
     // then
-    const inputNode = input.getDOMNode();
-    const actualValue = Number(inputNode.value);
+    const actualValue = getValueFromTargetNode(input);
     expect(actualValue).toEqual(0);
   });
 });

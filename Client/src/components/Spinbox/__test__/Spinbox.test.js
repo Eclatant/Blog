@@ -26,4 +26,23 @@ describe('spinbox.js > ', () => {
     const actualValue = Number(input.value);
     expect(actualValue).toEqual(200);
   });
+
+  test('입력 폼에 999를 입력할 수 있다.', () => {
+    // given
+    const spinbox = mount(<Spinbox />);
+
+    // when
+    const input = spinbox.find('input');
+
+    input.simulate('change', {
+      target: {
+        value: '999',
+      },
+    });
+
+    // then
+    const inputNode = input.getDOMNode();
+    const actualValue = Number(inputNode.value);
+    expect(actualValue).toEqual(999);
+  });
 });

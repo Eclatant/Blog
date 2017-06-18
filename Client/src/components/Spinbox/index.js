@@ -5,6 +5,13 @@ class Spinbox extends Component {
     this.state = {
       value: 200,
     };
+    this.handleChangeInput = this.handleChangeInput.bind(this);
+  }
+
+  handleChangeInput() {
+    this.setState({
+      value: 999,
+    });
   }
 
   render() {
@@ -13,11 +20,7 @@ class Spinbox extends Component {
         <input
           type="text"
           value={this.state.value}
-          onChange={() => {
-            this.setState({
-              value: 999,
-            });
-          }}
+          onChange={this.handleChangeInput}
         />
         <button>▲</button>
         <button>▼</button>

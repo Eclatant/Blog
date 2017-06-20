@@ -4,14 +4,10 @@ import registerServiceWorker from './registerServiceWorker';
 
 import App from './App';
 
-import ToDoApp from './components/ToDo/index';
-import { List, Map } from 'immutable';
+import ToDoApp from './pages/ToDo/';
+import Spinbox from './components/Spinbox/';
 
-const todos = List.of(
-  Map({ id: 1, text: 'React', status: 'active', editing: false }),
-  Map({ id: 2, text: 'Redux', status: 'active', editing: false }),
-  Map({ id: 3, text: 'immutable', status: 'completed', editing: false }),
-);
-
-ReactDOM.render(<ToDoApp todos={todos} filter={'all'} />, document.getElementById('root'));
+// ReactDOM.render(<Spinbox />, document.getElementById('root'));
+// ReactDOM.render(<ToDoApp />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

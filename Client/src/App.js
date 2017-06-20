@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Header from './components/Header';
+import Header from './share/Header';
 
-import Home from './routes/Home';
-import About from './routes/About';
-import Posts from './routes/Posts';
-import NotFound from './routes/NotFound';
+import Home from './pages/Home';
+import About from './pages/About';
+import Posts from './pages/Posts';
+import ToDo from './pages/ToDo/';
+import Spinbox from './components/Spinbox/';
+import NotFound from './pages/NotFound';
 
 const App = () => (
   <Router>
@@ -16,6 +18,8 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/posts" component={Posts} />
+        <Route path="/todo" component={ToDo} />
+        <Route path="/spinbox" component={Spinbox} />
         <Route component={NotFound} />
       </Switch>
     </div>

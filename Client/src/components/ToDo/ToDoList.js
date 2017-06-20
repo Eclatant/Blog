@@ -4,7 +4,6 @@ import ToDoItem from './ToDoItem';
 export default class ToDoList extends React.Component {
   constructor(props) {
     super(props);
-    this.getItems = this.getItems.bind(this);
     this.isCompleted = this.isCompleted.bind(this);
   }
 

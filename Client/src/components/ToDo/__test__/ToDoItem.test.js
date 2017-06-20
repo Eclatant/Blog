@@ -6,7 +6,7 @@ import ToDoItem from '../ToDoItem';
 
 const { renderIntoDocument,
   scryRenderedDOMComponentsWithTag,
-  Simulate
+  Simulate,
 } = TestUtils;
 
 describe('ToDoItem', () => {
@@ -91,6 +91,7 @@ describe('ToDoItem', () => {
       <ToDoItem text={text} editItem={editItem} />,
     );
     const label = component.refs.text;
+
     Simulate.doubleClick(label);
     expect(text).to.equal('Redux');
   });

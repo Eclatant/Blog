@@ -17,8 +17,13 @@ class ToDoItem extends React.Component {
             type="checkbox"
             className="toggle"
             defaultChecked={this.props.isCompleted}
+            onClick={() => this.props.toggleComplete(this.props.id)}
           />
-          <label htmlFor="todo">
+          <label
+            htmlFor="todo"
+            ref="text"
+            onDoubleClick={() => this.props.editItem(this.props.id)}
+          >
             {this.props.text}
           </label>
           <button
@@ -26,7 +31,12 @@ class ToDoItem extends React.Component {
             onClick={() => this.props.deleteItem(this.props.id)}
           />
         </div>
-        <TextInput />
+        <TextInput
+          text={this.props.text}
+          itemId={this.props.id}
+          cancelEditing={this.props.cancelEditing}
+          doneEditing={this.props.doneEditing}
+        />
       </li>
     );
   }

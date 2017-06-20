@@ -7,10 +7,25 @@ import Footer from './Footer';
 
 import './ToDo.css';
 
+import { List, Map } from 'immutable';
+
+const todos = List.of(
+  Map({ id: 1, text: 'React', status: 'active', editing: false }),
+  Map({ id: 2, text: 'Redux', status: 'active', editing: false }),
+  Map({ id: 3, text: 'immutable', status: 'completed', editing: false }),
+);
+
 export default class ToDoApp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos,
+      filter: 'all',
+    };
+  }
   getNbActiveItems() {
-    if (this.props.todos) {
-      const activeItems = this.props.todos.filter(
+    if (this.state.todos) {
+      const activeItems = this.state.todos.filter(
         item => item.get('status') === 'active',
       );
       return activeItems.size;
@@ -19,7 +34,7 @@ export default class ToDoApp extends Component {
   }
 
   getItems() {
-    return this.props.todos || [];
+    return this.state.todos || [];
   }
 
   render() {
@@ -27,12 +42,10 @@ export default class ToDoApp extends Component {
       <div>
         <section className="todoapp">
           <ToDoHeader />
-          <ToDoList todos={this.props.todos} filter={this.props.filter} />
+          <ToDoList todos={this.state.todos} filter={this.state.filter} />
           <ToDoTools
-            changeFilter={this.props.changeFilter}
-            filter={this.props.filter}
+            filter={this.state.filter}
             nbActiveItems={this.getNbActiveItems()}
-            clearCompleted={this.props.clearCompleted}
           />
         </section>
         <Footer />

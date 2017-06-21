@@ -17,7 +17,7 @@ export default class ToDoHeader extends Component {
   render() {
     return (
       <header className="header">
-        <h1>todos</h1>
+        <h1>To Do List</h1>
         <input
           className="new-todo"
           ref="addToDoInput"

@@ -1,5 +1,44 @@
+html,
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Spoqa Han Sans', 'San-serif';
+  background: #4D93B8;
+}
+
+body a {
+  text-decoration: none;
+}
+
+.page-about {
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+  color: #ffffff;
+  background-color: #4D93B8;
+  /* background: url(https://www.beautycolorcode.com/4db8b0-2880x1800.png) no-repeat center center fixed; */
+  background-size: cover;
+  padding: 20px;
+}
+
+.page-about li, .page-about p {
+  font-weight: bold;
+}
+
+.page-post {
+  color: white;
+}
+
+.page-404 {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-404 img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  display: block;
 }

@@ -1,25 +1,37 @@
 .header {
-    background: #5c7cfa;
+    /* background: #5c7cfa; */
     display: table;
     table-layout: fixed;
     width: 100%;
 }
 
 .item {
+    font-weight: bold;
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
     display: table-cell;
     color: white;
+    /* background: #00bfff; */
+    /* background: #87cefa; */
     text-decoration: none;
     font-size: 1.1rem;
 }
 
 .item:hover {
-    background: #748ffc;
+    /* background: #748ffc; */
+    /* background: #87cefa; */
+    /* background: #00bfff; */
+    /* background: #19B0FF; */
+    background: #00A7FF;
 }
 
 .item:active, .item.active {
-    background: white;
-    color: #5c7cfa;
+    /* background: white; */
+    /* background: #87cefa; */
+    /* background: #19B0FF; */
+    background: #00A7FF;
+    /* background: #00bfff; */
+    /* color: #5c7cfa; */
+    /* color: #00bfff; */
 }

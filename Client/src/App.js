@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './share/Header';
 
-import Home from './pages/Home';
 import About from './pages/About';
-import Posts from './pages/Posts';
+import PostList from './pages/Post/PostList';
+import PostDetail from './pages/Post/PostDetail';
+import PostCreate from './pages/Post/PostCreate';
 import ToDo from './pages/ToDo/';
-import Spinbox from './components/Spinbox/';
 import NotFound from './pages/NotFound';
 
 const App = () => (
@@ -15,11 +15,11 @@ const App = () => (
     <div>
       <Header />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/posts" component={Posts} />
+        <Route exact path="/" component={About} />
+        <Route exact path="/post" component={PostList} />
+        <Route path="/post/:id" component={PostDetail} />
+        <Route path="/post/create" component={PostCreate} />
         <Route path="/todo" component={ToDo} />
-        <Route path="/spinbox" component={Spinbox} />
         <Route component={NotFound} />
       </Switch>
     </div>

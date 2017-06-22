@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import * as Action from './ToDoAction';
 
 import ToDoHeader from './ToDoHeader';
 import ToDoList from './ToDoList';
@@ -7,25 +10,15 @@ import Footer from './Footer';
 
 import './ToDo.css';
 
-import { List, Map } from 'immutable';
-
-const todos = List.of(
-  Map({ id: 1, text: 'React', status: 'active', editing: false }),
-  Map({ id: 2, text: 'Redux', status: 'active', editing: false }),
-  Map({ id: 3, text: 'immutable', status: 'completed', editing: false }),
-);
-
-export default class ToDoApp extends Component {
+class ToDoApp extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      todos,
-      filter: 'all',
-    };
+    this.getNbActiveItems = this.getNbActiveItems.bind(this);
   }
+
   getNbActiveItems() {
-    if (this.state.todos) {
-      const activeItems = this.state.todos.filter(
+    if (this.props.todos) {
+      const activeItems = this.props.todos.filter(
         item => item.get('status') === 'active',
       );
       return activeItems.size;
@@ -33,19 +26,17 @@ export default class ToDoApp extends Component {
     return 0;
   }
 
-  getItems() {
-    return this.state.todos || [];
-  }
-
   render() {
     return (
       <div>
         <section className="todoapp">
-          <ToDoHeader />
-          <ToDoList todos={this.state.todos} filter={this.state.filter} />
+          <ToDoHeader addItem={this.props.addItem} />
+          <ToDoList {...this.props} />
           <ToDoTools
-            filter={this.state.filter}
+            changeFilter={this.props.changeFilter}
+            filter={this.props.filter}
             nbActiveItems={this.getNbActiveItems()}
+            clearCompleted={this.props.clearCompleted}
           />
         </section>
         <Footer />
@@ -53,3 +44,32 @@ export default class ToDoApp extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    todos: state.get('todos'),
+    filter: state.get('filter'),
+  };
+}
+
+export default connect(mapStateToProps, Action)(ToDoApp);
+
+// <ToDoList todos={this.props.todos} filter={this.props.filter} />;
+
+// todos: state.ToDo.todos,
+// filter: state.ToDo.filter,
+// todos: state.get('todos'),
+// filter: state.get('filter'),
+// todos: state.ToDo.get('todos'),
+// filter: state.ToDo.get('filter'),
+
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     initState: () => {
+//       dispatch(initState());
+//     },
+//   };
+// }
+
+// export default connect(mapStateToProps)(ToDoApp);
+// export default connect(mapStateToProps, mapDispatchToProps)(ToDoApp);

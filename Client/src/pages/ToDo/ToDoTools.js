@@ -28,7 +28,7 @@ export default class TodoTools extends React.Component {
               className={this.setSelectedClass('all')}
             >
                All
-             </a>
+            </a>
           </li>
           <li>
             <a
@@ -36,8 +36,8 @@ export default class TodoTools extends React.Component {
               onClick={() => this.props.changeFilter('active')}
               className={this.setSelectedClass('active')}
             >
-               Active
-             </a>
+              Active
+            </a>
           </li>
           <li>
             <a
@@ -45,8 +45,8 @@ export default class TodoTools extends React.Component {
               onClick={() => this.props.changeFilter('completed')}
               className={this.setSelectedClass('completed')}
             >
-               Completed
-             </a>
+              Completed
+            </a>
           </li>
         </ul>
         <button

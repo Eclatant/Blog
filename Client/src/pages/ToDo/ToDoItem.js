@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import TextInput from './TextInput';
 
-class ToDoItem extends React.Component {
+export default class ToDoItem extends React.Component {
   render() {
     const itemClass = classnames({
       todo: true,
@@ -41,5 +41,3 @@ class ToDoItem extends React.Component {
     );
   }
 }
-
-export default ToDoItem;

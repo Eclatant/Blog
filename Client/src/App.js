@@ -16,9 +16,9 @@ const App = () => (
       <Header />
       <Switch>
         <Route exact path="/" component={About} />
-        <Route exact path="/post" component={PostList} />
+        {/* <Route exact path="/post" component={PostList} />
         <Route path="/post/:id" component={PostDetail} />
-        <Route path="/post/create" component={PostCreate} />
+        <Route path="/post/create" component={PostCreate} /> */}
         <Route path="/todo" component={ToDo} />
         <Route component={NotFound} />
       </Switch>

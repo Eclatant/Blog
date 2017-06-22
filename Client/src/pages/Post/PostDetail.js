@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
 const PostDetail = ({ match, location }) => (
-  <div>
+  <div className="page-post post-detail">
     <h2>{match.params.title}</h2>
     <h3>{new URLSearchParams(location.search).get('keyword')}</h3>
   </div>

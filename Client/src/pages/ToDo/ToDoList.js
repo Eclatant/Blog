@@ -7,7 +7,6 @@ export default class ToDoList extends React.Component {
     this.isCompleted = this.isCompleted.bind(this);
   }
 
-  // 각 상태에 따라 아이템 필터링
   getItems() {
     if (this.props.todos) {
       return this.props.todos.filter(
@@ -17,7 +16,7 @@ export default class ToDoList extends React.Component {
     return [];
   }
 
-  // TODO ESLint
+  // TODO: ESLint
   isCompleted(item) {
     return item.get('status') === 'completed';
   }
@@ -30,8 +29,11 @@ export default class ToDoList extends React.Component {
             <ToDoItem
               key={item.get('text')}
               text={item.get('text')}
+              id={item.get('id')}
               isCompleted={this.isCompleted(item)}
               isEditing={item.get('editing')}
+              doneEditing={this.props.doneEditing}
+              cancelEditing={this.props.cancelEditing}
               toggleComplete={this.props.toggleComplete}
               deleteItem={this.props.deleteItem}
               editItem={this.props.editItem}
